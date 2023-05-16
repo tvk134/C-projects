@@ -1,0 +1,109 @@
+TESTING COMMAND SORTING WITH REDIRECTIONS (WITHOUT PIPE)
+cat f1
+cat f1 <in
+cat f1 <in f2 f3
+cat f1 <in f2 >out f3 f4
+cat f1 f2 <in >out f4 <f5 f6
+cat f1 f2 <in >out f4 >f5 f6
+
+cat f1
+cat f1 >out
+cat f1 >out f2 f3
+cat f1 >out f2 <in f3 f4
+cat f1 f2 >out <in f4 <f5 f6
+cat f1 f2 >out <in f4 >f5 f6
+
+TESTING COMMAND SORTING WITH REDIRECTIONS (WITH PIPE)
+cat f1|ls
+cat f1 f2|ls
+cat f1<in|ls
+cat f1>out|ls
+cat f1 <in f2 f3|ls
+cat f1 f4<in f2 f3|ls
+cat f1 >out f2 f3|ls
+cat f1 f4 >out f2 f3|ls
+cat f1 <in f2 >out f3 f4|ls
+cat f1 f2 <in >out f4 <f5 f6|ls
+cat f1 f2 <in >out f4 >f5 f6|ls
+
+ls|cat f1
+ls|cat f1 f2
+ls|cat f1<in
+ls|cat f1>out
+ls|cat f1 <in f2 f3
+ls|cat f1 f4<in f2 f3
+ls|cat f1 >out f2 f3
+ls|cat f1 f4 >out f2 f3
+ls|cat f1 <in f2 >out f3 f4
+ls|cat f1 f2 <in >out f4 <f5 f6
+ls|cat f1 f2 <in >out f4 >f5 f6
+
+cat f1|cat f1
+cat f1 f2|cat f1 f2
+cat f1<in|cat f1>out
+cat f1 <in f2 f3|cat f1 >out f2 f3
+cat f1 f4<in f2 f3|cat f1 f4>out f2 f3
+cat f1 <in f2 >out f3 f4|cat f1 <in f2 >out f3 f4
+cat f1 f2 <in >out f4 <f5 f6|cat f1 f2 <in >out f4 <f5 f6
+cat f1 f2 <in >out f4 >f5 f6|cat f1 f2 <in >out f4 >f5 f6
+
+
+TESTING MISSING PARAMETERS (WITHOUT PIPE)
+cat f1>
+cat f1> <in
+cat f1>out<
+cat f1<
+cat f1< >out
+cat f1<in >
+
+>out
+>out <in
+> <in
+> >out
+<in
+<in >out
+< >out
+
+cat f1 >out <in >
+cat f1 >out <in <
+cat f1 >out <in >out2
+cat f1 >out <in <out2
+cat f1 >out <in >out2<
+cat f1 >out <in <out2>
+
+TESTING MISSING PARAMETERS (WITH PIPE)
+cat f1>|ls
+cat f1><in|ls
+cat f1>out<|ls
+cat f1<|ls
+cat f1<>out|ls
+cat f1<in>|ls
+
+ls|cat f1>
+ls|cat f1><in
+ls|cat f1>out<
+ls|cat f1<
+ls|cat f1<>out
+ls|cat f1<in>
+
+>out|ls
+>out<in|ls
+><in|ls
+>>out|ls
+<in|ls
+<in>out|ls
+<>out|ls
+
+ls|>out
+ls|>out<in
+ls|><in
+ls|>>out
+ls|<in
+ls|<in>out
+ls|<>out
+
+WildCard Expansions
+ls *.txt
+ls */*.txt
+ls ../*/*.txt
+cat *.txt

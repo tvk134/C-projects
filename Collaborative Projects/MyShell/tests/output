@@ -1,0 +1,17 @@
+ls
+who
+cal
+cat tests/input
+sort tests/input
+mkdir tests/creatingdir
+touch tests/creatingfile
+cp tests/input tests/creatingcopy
+rm tests/creatingdir
+rmdir tests/creatingdir
+rmdir tests/creatingfile
+rm tests/creatingfile
+rm tests/creatingcopycat < tests/input
+ls > tests/output
+sort tests/input > tests/output
+sort > tests/output tests/input
+ls *.txt > tests/output *.c

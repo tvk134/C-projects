@@ -1,0 +1,3 @@
+cat < tests/input | sort
+ls -r | sort > tests/output
+cat < tests/input | sort > tests/output

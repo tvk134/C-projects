@@ -1,0 +1,32 @@
+pwd
+pwd > tests/output
+pwd | ./tests/test
+pwd | cat
+ls | pwd 
+
+cd tests/ 
+pwd
+cd ../ 
+pwd
+cd tests/ | ls *.txt
+pwd
+cd
+pwd
+cd ~ < tests/input
+pwd
+
+exit | ls
+echo hello | exit
+
+/usr/bin/ls
+/usr/bin/cat tests/input
+
+cd ~/CS211
+
+ls *.txt
+cat *.c
+ls *.c | sort
+
+cd tests/ <input
+cd tests/ >output
+

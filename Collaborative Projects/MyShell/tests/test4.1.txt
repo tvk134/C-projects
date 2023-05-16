@@ -1,0 +1,69 @@
+ls nodir
+cat < nofile
+
+>tests/output
+<tests/input
+
+cat tests/input >
+cat <
+
+cat <tests/input <tests/input
+ls > tests/output > tests/output 
+
+ls > tests/output | sort
+ls | cat <tests/input
+
+cat tests/input < >tests/output
+cat <tests/input > <
+
+cat tests/input>
+cat tests/input> <tests/input
+cat tests/input>tests/output<
+cat tests/input<
+cat tests/input< >tests/output
+cat tests/input<tests/input >
+
+>tests/output
+>tests/output <tests/input
+> <in
+> >tests/output
+<tests/input
+<tests/input >tests/output
+< >tests/output
+
+cat tests/input >tests/output <tests/input >
+cat tests/input >tests/output <tests/input <
+cat tests/input >tests/output <tests/input >tests/output
+cat tests/input >tests/output <tests/input <tests/output
+cat tests/input >tests/output <tests/input >tests/output<
+cat tests/output >tests/output <tests/input <tests/output>
+
+cat tests/input>|ls
+cat tests/input><tests/input|ls
+cat tests/input>out<|ls
+cat tests/input<|ls
+cat tests/input<>tests/output|ls
+cat tests/input<tests/input>|ls
+
+ls|cat tests/input>
+ls|cat tests/input><tests/input
+ls|cat tests/input>tests/output<
+ls|cat tests/input<
+ls|cat tests/input<>tests/output
+ls|cat tests/input<tests/input>
+
+>tests/output|ls
+>tests/output<in|ls
+><tests/input|ls
+>>tests/output|ls
+<tests/input|ls
+<tests/input>tests/output|ls
+<>out|ls
+
+ls|cat<tests/output
+ls|cat>tests/output<in
+ls|cat><tests/input
+ls|cat>>tests/output
+ls|cat<tests/input
+ls|cat<tests/input>tests/output
+ls|cat<>tests/output

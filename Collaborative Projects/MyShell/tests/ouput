@@ -1,0 +1,5 @@
+cat < tests/input
+ls > tests/output
+sort tests/input > tests/output
+sort > tests/output tests/input
+ls *.txt > tests/output *.c

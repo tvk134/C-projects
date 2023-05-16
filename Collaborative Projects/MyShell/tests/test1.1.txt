@@ -1,0 +1,13 @@
+ls
+who
+cal
+cat tests/input
+sort tests/input
+mkdir tests/creatingdir
+touch tests/creatingfile
+cp tests/input tests/creatingcopy
+rm tests/creatingdir
+rmdir tests/creatingdir
+rmdir tests/creatingfile
+rm tests/creatingfile
+rm tests/creatingcopy

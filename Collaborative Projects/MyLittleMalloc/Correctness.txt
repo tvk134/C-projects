@@ -1,0 +1,22 @@
+This txt file explains the methodology behind our correctness testing plan (found in correctness.c).
+First, to ensure that the malloc function is reserving unallocated memory, we allocate 4091 bytes, leaving 5 bytes unallocated.
+As mentioned in other documentation, the total size of the memory array is assigned to MEMSIZE + 4 to account for the topmost chunk header that is always present.
+Now, a char* called second is allocated 1 byte (taking up 5 bytes because each header has size 4 bytes).
+At present, the memory array is completely full and there is no unallocated memory left.
+So, if any allocations are attempted now, the user should expect an error.
+After freeing the "second" pointer, there is once again (1+4) bytes of memory available and the "third" pointer can be successfully allocated.
+
+Next, two integer arrays "fourth" and "fifth" are allocated. All elements of "fourth" are assigned value 0 and all elements of "fifth" are assigned value 1.
+All values from both arrays are printed and if they remain 0s and 1s respectively, it is proven that they do not overlap despite being adjacent in memory.
+
+Integer arrays "sixth" and "seventh" are similarly allocated. Their elements assigned values "666666" and "7777777" respectively.
+A for look checks to make sure that these elements have preserved their value and prints a statement expressing the outcome.
+If they are preserved, it is clear that the library does not edit any data stored in user-assigned sections of memory.
+
+An allocation of 4096 bytes is assigned to integer pointer "eighth". All of the available memory has been allocated now.
+Attempting to allocate any amount to integer pointer "ninth" will return an error. Freeing this would deallocate all of memory again and make it avaialable.
+After freeing "eighth", we are successfully able to allocate memory agian, proving that the free() function successfully deallocates memory.
+
+Pointer "ninth" is allocated 5 bytes leaving 4091 (4083+4) free. When it is freed, we are successfully able to assigne "tenth" 4096 bytes, meaning that the previously freed chunks were successfully coalesced.
+
+Following this, all possible error messages are printed by intentionally causing errors.
